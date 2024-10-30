@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "88711884178",
+    "project_id": "chef-s-recipe-app",
+    "storage_bucket": "chef-s-recipe-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88711884178:android:06603540ab73da13dfa54b",
+        "android_client_info": {
+          "package_name": "com.example.chefsrecipeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu8PnaBPJN2AN8zr8ywYjslUKfm6uvCqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MyApp.Splash" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/gold</item>
+    </style>
+
+    <string-array name="role_array">
+        <item>Chef</item>
+        <item>Home Cook</item>
+    </string-array>
+
+</resources>
