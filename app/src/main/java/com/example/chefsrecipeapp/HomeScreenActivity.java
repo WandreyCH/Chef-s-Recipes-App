@@ -1,24 +1,22 @@
 package com.example.chefsrecipeapp;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.RatingBar;
 
-public class HomeScreenActivity extends AppCompatActivity {
-
+public class RecipesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home_screen);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // Inicialize componentes (pode ser útil para lógica futura)
+        EditText searchBar = findViewById(R.id.searchBar);
+        TextView topRatedTitle = findViewById(R.id.topRatedTitle);
+        RatingBar ratingBar1 = findViewById(R.id.ratingBar1);
+
+        // Configurações ou dados dinâmicos podem ser carregados aqui
     }
 }
