@@ -5,6 +5,16 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search recipes"
+        android:background="@android:drawable/edit_text"
+        android:padding="10dp"
+        android:drawableLeft="@android:drawable/ic_menu_search"/>
+
     <!-- Imagem do prato -->
     <ImageView
         android:id="@+id/recipeImage"
