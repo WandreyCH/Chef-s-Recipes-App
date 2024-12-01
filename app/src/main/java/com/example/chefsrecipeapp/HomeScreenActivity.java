@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.RatingBar;
 
-public class RecipesActivity extends AppCompatActivity {
+public class HomeScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
