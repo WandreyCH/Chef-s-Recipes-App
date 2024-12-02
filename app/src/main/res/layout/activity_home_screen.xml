@@ -25,6 +25,12 @@
         android:textSize="18sp"
         android:textStyle="bold"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipeRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topRatedTitle"
+        android:layout_marginTop="10dp"/>
     <!-- Lista de receitas -->
     <LinearLayout
         android:id="@+id/recipeList"
