@@ -44,7 +44,7 @@
                 android:id="@+id/recipeImage1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/"
+                android:src="@drawable/chef"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout
@@ -91,7 +91,7 @@
                 android:id="@+id/recipeImage2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/"
+                android:src="@drawable/chef"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout
@@ -138,7 +138,7 @@
                 android:id="@+id/recipeImage3"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable"
+                android:src="@drawable/chef"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout

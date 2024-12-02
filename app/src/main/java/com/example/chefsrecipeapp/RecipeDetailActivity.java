@@ -25,7 +25,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         ratingBar.setRating(4.5f);
         ingredientsList.setText("• Spaghetti\n• Eggs\n• Parmesan cheese\n• Pancetta\n• Black pepper");
 
-        // Para a imagem, você pode carregar uma imagem real aqui
-        recipeImage.setImageResource(R.drawable.sample_dish1);
+//        // Para a imagem, você pode carregar uma imagem real aqui
+//        recipeImage.setImageResource(R.drawable.sample_dish1);
     }
 }
