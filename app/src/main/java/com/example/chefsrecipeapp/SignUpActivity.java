@@ -14,6 +14,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -46,6 +47,9 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void registerUser() {
+
+        Log.d("RegisterUser", "registerUser() called");
+
         String email = editTextemail.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
         String cPass = confirmPassword.getText().toString().trim();
@@ -53,10 +57,12 @@ public class SignUpActivity extends AppCompatActivity {
         String role = spinnerRoller.getSelectedItem().toString();
 
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(cPass)) {
+            Log.d("RegisterUser", "Validation failed: empty fields");
             Toast.makeText(SignUpActivity.this, "All fields are required.", Toast.LENGTH_SHORT).show();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Log.d("RegisterUser", "Validation failed: invalid email");
             editTextemail.setError("Invalid Email");
             editTextemail.requestFocus();
             return;
@@ -72,31 +78,29 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
+        Log.d("RegisterUser", "Attempting to register user with email: " + email);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
+                Log.d("RegisterUser", "Firebase Authentication successful");
                 FirebaseUser firebaseUser = mAuth.getCurrentUser();
                 if (firebaseUser != null) {
-                    // Get unique user ID
-                    String userId = firebaseUser.getUid();
-
-                    // Create User object
+                    Log.d("RegisterUser", "FirebaseUser UID: " + firebaseUser.getUid());                    String userId = firebaseUser.getUid();
                     User user = new User(name, email, role);
 
-                    // Save user information to database
                     databaseReference.child(userId).setValue(user).addOnCompleteListener(task1 -> {
                         if (task1.isSuccessful()) {
+                            Log.d("RegisterUser", "User data saved to Firebase Database");
                             Toast.makeText(SignUpActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-
-                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                            startActivity(intent);
+                            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                             finish();
                         } else {
+                            Log.e("RegisterUser", "Database Error: " + task1.getException().getMessage());
                             Toast.makeText(SignUpActivity.this, "Database Error", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
             } else {
-                Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Registration Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
