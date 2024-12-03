@@ -13,14 +13,7 @@
         android:theme="@style/Theme.ChefsRecipeApp"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-            android:name=".ChefProfile"
-            android:exported="false" />
-        <activity
-            android:name=".RecipeDetailActivity"
-=======
             android:name=".ChefProfileActivity"
->>>>>>> origin/dev
             android:exported="false" />
         <activity
             android:name=".HomeScreenActivity"

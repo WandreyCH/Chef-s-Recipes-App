@@ -13,7 +13,7 @@ import java.util.List;
 public class HomeScreenActivity extends AppCompatActivity {
 
     private RecyclerView recipeRecyclerView;
-    private RecipeAdapter adapter;  // O Adapter que você criará
+
 
     EditText searchBar;
     TextView topRatedTitle;
@@ -32,15 +32,15 @@ public class HomeScreenActivity extends AppCompatActivity {
         recipeRecyclerView = findViewById(R.id.recipeRecyclerView);
         recipeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Simulando dados (serão substituídos por dados reais do backend futuramente)
-        List<ChefRecipes> topRatedRecipes = new ArrayList<>();
-        topRatedRecipes.add(new ChefRecipes("Pasta Carbonara", 4.8f, R.drawable.chef));
-        topRatedRecipes.add(new ChefRecipes("Sushi Deluxe", 4.7f, R.drawable.chef));
-        topRatedRecipes.add(new ChefRecipes("Chocolate Cake", 4.9f, R.drawable.chef));
-        topRatedRecipes.add(new ChefRecipes("Grilled Salmon", 4.6f, R.drawable.chef));
+//        // Simulando dados (serão substituídos por dados reais do backend futuramente)
+//        List<Recipe> topRatedRecipes = new ArrayList<>();
+//        topRatedRecipes.add(new Recipe("Pasta Carbonara", 4.8f, R.drawable.chef));
+//        topRatedRecipes.add(new Recipe("Sushi Deluxe", 4.7f, R.drawable.chef));
+//        topRatedRecipes.add(new Recipe("Chocolate Cake", 4.9f, R.drawable.chef));
+//        topRatedRecipes.add(new Recipe("Grilled Salmon", 4.6f, R.drawable.chef));
 
-        // Configura o Adapter
-        adapter = new RecipeAdapter(topRatedRecipes);
-        recipeRecyclerView.setAdapter(adapter);
+//        // Configura o Adapter
+//        adapter = new RecipeAdapter(topRatedRecipes);
+//        recipeRecyclerView.setAdapter(adapter);
     }
 }

@@ -24,6 +24,7 @@ public class ChefProfileActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
     TextView savedDescriptionText;
+    TextView chefNameText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class ChefProfileActivity extends AppCompatActivity {
         savedDescriptionText = findViewById(R.id.savedDescriptionText);
         saveProfileButton = findViewById(R.id.saveProfileButton);
         createRecipeButton = findViewById(R.id.createRecipeButton);
+        chefNameText = findViewById(R.id.chefNameText);
 
         saveProfileButton.setOnClickListener(v -> saveProfile());
 
@@ -71,6 +73,17 @@ public class ChefProfileActivity extends AppCompatActivity {
                             Toast.makeText(ChefProfileActivity.this, "Failed to Update Profile", Toast.LENGTH_SHORT).show();
                         }
                     });
+
+            databaseReference.child(userId).get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    User user = task.getResult().getValue(User.class);
+                    if (user != null) {
+                        chefNameText.setText(user.getName());  // Define o nome do chef no TextView
+                    }
+                } else {
+                    Toast.makeText(ChefProfileActivity.this, "Failed to load profile", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 }

@@ -15,6 +15,17 @@
         android:contentDescription="Chef's Profile Image"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Mostra o nome do chef vindo do objeto User -->
+    <TextView
+        android:id="@+id/chefNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chef's Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"/>
+
     <!--Textview para mostrar a descrição do chef após clicar no botão-->
     <TextView
         android:id="@+id/savedDescriptionText"
