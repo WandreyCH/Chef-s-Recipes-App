@@ -2,9 +2,11 @@ package com.example.chefsrecipeapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +18,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ChefProfileActivity extends AppCompatActivity {
 
-    private ImageView chefImage;
-    private EditText chefDescription;
-    private Button saveProfileButton, createRecipeButton;
-    private FirebaseAuth mAuth;
-    private DatabaseReference databaseReference;
+    ImageView chefImage;
+    EditText chefDescription;
+    Button saveProfileButton, createRecipeButton;
+    FirebaseAuth mAuth;
+    DatabaseReference databaseReference;
+    TextView savedDescriptionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class ChefProfileActivity extends AppCompatActivity {
 
         chefImage = findViewById(R.id.chefImage);
         chefDescription = findViewById(R.id.chefDescription);
+        savedDescriptionText = findViewById(R.id.savedDescriptionText);
         saveProfileButton = findViewById(R.id.saveProfileButton);
         createRecipeButton = findViewById(R.id.createRecipeButton);
 
@@ -46,15 +50,22 @@ public class ChefProfileActivity extends AppCompatActivity {
     private void saveProfile() {
         String description = chefDescription.getText().toString().trim();
 
+        if (description.isEmpty()) {
+            Toast.makeText(this, "Please enter a description", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid();
 
-            // Save the chef's description and profile image URL (if needed)
-            ChefProfile chefProfile = new ChefProfile(description);
+            // Save the chef's description
+            ChefProfile chefProfile = new ChefProfile();
             databaseReference.child(userId).child("chefProfile").setValue(chefProfile)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
+                            savedDescriptionText.setText(description); // Set the saved text
+                            savedDescriptionText.setVisibility(View.VISIBLE); // Show the TextView
                             Toast.makeText(ChefProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(ChefProfileActivity.this, "Failed to Update Profile", Toast.LENGTH_SHORT).show();

@@ -2,17 +2,17 @@ package com.example.chefsrecipeapp;
 
 public class User {
 
-    private String name, email, role, description;
+    private String name, email, role;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public User(String name, String email, String role, String description) {
+    public User(String name, String email, String role) {
         this.name = name;
         this.email = email;
         this.role = role;
-        this.description = description;
+
     }
 
     public String getName() {
@@ -39,11 +39,4 @@ public class User {
         this.role = role;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

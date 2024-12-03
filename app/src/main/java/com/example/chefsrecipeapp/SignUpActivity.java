@@ -25,8 +25,6 @@ public class SignUpActivity extends AppCompatActivity {
     Button buttonSubmit;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference; // Database reference
-    EditText editTextDescription;
-    String description = editTextDescription.getText().toString().trim();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,6 @@ public class SignUpActivity extends AppCompatActivity {
         confirmPassword = findViewById(R.id.cPassword);
         spinnerRoller = findViewById(R.id.roleSpinner);
         buttonSubmit = findViewById(R.id.submitButton);
-        editTextDescription = findViewById(R.id.editTextDescription);
 
 
         buttonSubmit.setOnClickListener(v -> registerUser());
@@ -83,7 +80,7 @@ public class SignUpActivity extends AppCompatActivity {
                     String userId = firebaseUser.getUid();
 
                     // Create User object
-                    User user = new User(name, email, role, "");
+                    User user = new User(name, email, role);
 
                     // Save user information to database
                     databaseReference.child(userId).setValue(user).addOnCompleteListener(task1 -> {
