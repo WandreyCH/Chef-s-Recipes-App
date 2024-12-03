@@ -1,55 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <LinearLayout
+    <!-- ImageView for Chef's Profile Image -->
+    <ImageView
+        android:id="@+id/chefImage"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:src="@drawable/chef"
+        android:contentDescription="Chef's Profile Image"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- EditText for Chef's Description -->
+    <EditText
+        android:id="@+id/chefDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:hint="Write a description about yourself"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:minHeight="120dp"
+        android:layout_marginBottom="16dp"/>
 
-        <!-- Imagem do Chef -->
-        <ImageView
-            android:id="@+id/chefImage"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:src="@drawable/chef"
-            android:layout_marginBottom="16dp" />
+    <!-- Button to Save Profile -->
+    <Button
+        android:id="@+id/saveProfileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Profile"/>
 
-        <!-- Nome do Chef -->
-        <TextView
-            android:id="@+id/chefName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="8dp"
-            android:text="Chef Name"/>
+    <!-- Button to Create Recipe -->
+    <Button
+        android:id="@+id/createRecipeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Recipe"
+        android:layout_marginTop="16dp"/>
 
-        <!-- Descrição do Chef -->
-        <TextView
-            android:id="@+id/chefDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:layout_marginBottom="24dp"
-            android:text="Chef background description..." />
-
-        <!-- Botão para criar nova receita -->
-        <Button
-            android:id="@+id/createRecipeButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Create Recipe"
-            android:backgroundTint="@color/black"
-            android:textColor="@android:color/white"/>
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
