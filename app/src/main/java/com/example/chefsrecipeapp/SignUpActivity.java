@@ -51,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         String name = editTextname.getText().toString().trim();
         String role = spinnerRoller.getSelectedItem().toString();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(cPass)) {
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(cPass)) {
             Toast.makeText(SignUpActivity.this, "All fields are required.", Toast.LENGTH_SHORT).show();
             return;
         }
